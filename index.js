@@ -1,17 +1,18 @@
-/**
-Task:
-- Write the code to help a user choose the perfect Christmas dinner idea
-  based on the number of people attending.
-- Include a checkbox for the user to specify the meal 
-  should be vegetarian-friendly.
+const numGuests = document.querySelector('#num-input')
+const btn = document.querySelector('#btn')
+const vegCheckbox = document.querySelector('#vegetarian-input')
+const mealIs = document.querySelector('#food')
 
-Dinner suggestions (or choose your own!):
-Vegetarian: Winter Squash Risotto
-4 people or less: Ham
-5+ people: Turkey
+btn.addEventListener("click", dinnerFunc)
 
-Stretch goals:
-- Add more dietary options.
-- Show recipes when the meal has been selected.
- */
-
+function dinnerFunc() {
+  if (!vegCheckbox.checked && numGuests.value <= 4) {
+    mealIs.textContent = "Ham"
+  } else if (!vegCheckbox.checked && numGuests.value >= 5) {
+  mealIs.textContent = "Turkey"
+} else if (vegCheckbox.checked && numGuests.value <= 4) {
+  mealIs.textContent = "Harmless Ham"
+} else {
+  mealIs.textContent = "Tofurkey"
+  }
+}
